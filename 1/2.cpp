@@ -1,3 +1,4 @@
+#include <complex>
 #include <iostream>
 #include <cmath>
 
@@ -91,26 +92,26 @@ TComplex TComplex::divide(TComplex number) {
 }
 
 TComplex TComplex::ConjComplex() {
-    TComplex result(this->Re, -this->Im);
+    TComplex result(Re, -Im);
     return result;
 }
 
 float TComplex::AbsComplex() {
-    return sqrt(this->Re * this->Re + this->Im * this->Im);
+    return sqrt(Re * Re + Im * Im);
 }
 
 float TComplex::ArgComplexRad() {
-    if (this->Re > 0) {
-        return atan( this->Im / this->Re );
+    if (Re > 0) {
+        return atan( Im / Re );
     }
-    else if (this->Re < 0) {
-        return atan( this->Im / this->Re ) + M_PI;
+    else if (Re < 0) {
+        return atan( Im / Re ) + M_PI;
     }
 
-    if (this->Im > 0) {
+    if (Im > 0) {
         return M_PI * 0.5;
     }
-    else if (this->Im < 0) {
+    else if (Im < 0) {
         return -M_PI * 0.5;
     }
 
@@ -118,5 +119,5 @@ float TComplex::ArgComplexRad() {
 }
 
 float TComplex::ArgComplexDeg() {
-    return 57.3 * this->ArgComplexRad();
+    return 57.3 * ArgComplexRad();
 }
