@@ -1,5 +1,4 @@
 #include "stos.h"
-#include <cstdlib>
 #include <string>
 #include <ostream>
 
