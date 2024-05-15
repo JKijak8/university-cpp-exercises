@@ -1,4 +1,6 @@
 #include "stos.h"
+#include <cstring>
+#include <bits/stdc++.h>
 
 Stos::Stos() {
     _rozmiar = 1;
@@ -16,7 +18,7 @@ Stos::Stos(Stos &stos) {
 }
 
 Stos::~Stos() {
-    delete _tablica;
+    delete[] _tablica;
 }
 
 void Stos::wloz(string napis) {
@@ -31,7 +33,7 @@ void Stos::wloz(string napis) {
 
 string Stos::sciagnij() {
     if (_ile > 0) {
-        string ostatniElement = _tablica[_ile];
+        string ostatniElement = _tablica[_ile - 1];
         _tablica[_ile] = "";
         _ile--;
         return ostatniElement;
@@ -41,7 +43,7 @@ string Stos::sciagnij() {
 
 string Stos::sprawdz() {
     if(_ile > 0) {
-        return _tablica[_ile];
+        return _tablica[_ile - 1];
     }
     return "Stos jest pusty";
 }
